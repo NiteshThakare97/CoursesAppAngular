@@ -1,0 +1,21 @@
+.course-container{
+    width: 580px;
+    margin: 20px auto;
+    padding: 10px 10px;
+    background-color: #f2eaea;
+}
+.course-details{
+    display: flex;
+    margin: 20px 0px;
+    text-align: center;
+}
+input{
+    width: 80%;
+    padding: 7px;
+    text-align: center;
+}
+button{
+    padding: 5px 15px;
+    background-color: #bbbbbb;
+    margin-right: 10px;
+}
