@@ -9,6 +9,7 @@ import { CourseComponent } from './courses/course/course.component';
 import { ErrorComponent } from './error/error.component';
 import { CourseGuardService } from "./course-guard.service";
 import { CanDeactivateGuardService } from "./candeactivate-guard.service";
+import { CourseResolveService } from "./course-resolve.service";
 
 const appRoute: Routes = [
   {path: '', component: HomeComponent},
@@ -16,7 +17,7 @@ const appRoute: Routes = [
   {path: 'Home', component: HomeComponent},
   {path: 'About', component: AboutComponent},
   {path: 'Contact',canDeactivate:[CanDeactivateGuardService], component: ContactComponent},
-  {path: 'Courses', component: CoursesComponent},
+  {path: 'Courses', component: CoursesComponent, resolve: {courses: CourseResolveService}},
   // {path: 'Courses/Course/:id', component: CourseComponent},
   {path: 'Courses', canActivateChild:[CourseGuardService], children: [
     {path: 'Course/:id', component: CourseComponent}
@@ -26,7 +27,7 @@ const appRoute: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(appRoute)
+    RouterModule.forRoot(appRoute, {enableTracing: true})
   ],
   exports: [
     RouterModule

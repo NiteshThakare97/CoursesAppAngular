@@ -36,5 +36,14 @@ export class CoursesService{
           price: 115.50, ratings: 4.8, image:'assets/courses/course-image-9.jpeg',
           description: 'In this course you will learn about reactive web development using HTML & CSS. This course will start teaching you from basics of HTML & CSS and as you progress, you will learn all the advance concepts.'
         }
-      ]
+      ];
+
+      getAllCourses(): any{
+        const courseList = new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve(this.courses)
+          }, 2000)
+        });
+        return courseList;
+      }
 }
